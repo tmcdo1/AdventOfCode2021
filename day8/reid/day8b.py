@@ -24,23 +24,10 @@ for line in lines:
             elif len(code) == 7:
                 eight = code
 
-    # keyMap['2'] = top +           topRight + mid + bot + botLeft
-    # keyMap['3'] = top +           topRight + mid + bot +           botRight
-    # keyMap['5'] = top + topLeft +            mid + bot +           botRight
-
-    # keyMap['0'] = top + topLeft + topRight +       bot + botLeft + botRight
-    # keyMap['6'] = top + topLeft +            mid + bot + botLeft + botRight
-    # keyMap['9'] = top + topLeft + topRight + mid + bot +           botRight
-
     midAndTopLeftChars = "" 
     for l in range(0, len(four)):
         if one.find(four[l]) == -1:
             midAndTopLeftChars = midAndTopLeftChars + four[l]
-    
-    # print(one)
-    # print(four)
-    # print(seven)
-    # print(eight)
 
     afterDelimiter = False
     for code in row:
@@ -69,8 +56,6 @@ for line in lines:
                     outputValueString += "9"
                 else:
                     outputValueString += "0"
-    sumOutputs += int(outputValueString)
-    print("CODE: " + code + " " + outputValueString)
-            
+    sumOutputs += int(outputValueString)         
                 
 print(sumOutputs)
