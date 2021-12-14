@@ -59,10 +59,9 @@ for line in lines:
                     x+=1
                 idx+=1
             maxY = value-1
-        count = 0
-        for y in range(maxY+1):
-            for x in range(maxX+1):
-                if paper[y][x] == '#':
-                    count +=1
-        print(count)
-        break
+
+for y in paper[0:maxY+1]:
+    s = ''
+    for x in y[0:maxX+1]:
+        s = s + x
+    print(s)
