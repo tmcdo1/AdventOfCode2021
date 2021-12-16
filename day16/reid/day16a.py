@@ -25,8 +25,7 @@ for l in lines[0].strip():
     binaryMessage += hexToBinaryConverter[l]
 
 binIdx = 0
-version = 0
-type = 0
+version = 0; type = 0
 versionSum = 0
 while binIdx < len(binaryMessage):
     if version == 0 and type == 0:
@@ -36,11 +35,23 @@ while binIdx < len(binaryMessage):
         binIdx += 3
         type = int(binaryMessage[binIdx:binIdx+3],2)
         binIdx += 3
-        if version == 4:
+        if type == 4:
             # literal packet
-            
+            literal = int(binaryMessage[binIdx+1:binIdx+5]+binaryMessage[binIdx+6:binIdx+10]+binaryMessage[binIdx+11:binIdx+15],2)
+            binIdx += 18
+            version = 0; type = 0
         else:
             # operator packet
+            if int(binaryMessage[binIdx+1:binIdx+5]) == 0:
+                length = 15
+            else:
+                length = 10
+            binIdx += 1
+
+            # do some processing
+
+            version = 0; type = 0
+
 
 
 print(versionSum)
