@@ -1,3 +1,4 @@
+# found this method on internet #blessed
 def neighbor(node):
     x = node % len(lines); y = int(node / len(lines))
     points = [(y-1,x), (y,x-1), (y,x+1), (y+1,x)]
