@@ -11,6 +11,7 @@ for coord in (coord for coord in yPointsInput.strip(",")[2:].split('..')):
     points["y"].append(int(coord))
 
 maxY = 0
+count = 0
 for x in range(1,max(points["x"])*2):
     for y in range(min(points["y"]),max(points["x"])):
         pX = 0; pY = 0
@@ -32,6 +33,7 @@ for x in range(1,max(points["x"])*2):
             if (pX in range(min(tX),max(tX)+1)) and (pY in range(min(tY),max(tY)+1)):
                 if currMaxY > maxY:
                     maxY = currMaxY
+                count += 1
                 done = True
             
-print(maxY)
+print(count)
